@@ -1,0 +1,21 @@
+{
+    "name": "adrigar94/value-object-craft",
+    "description": "ValueObjectCraft is a PHP library that provides a set of versatile and robust value objects for data handling in applications. It is designed to simplify and standardize the usage of value objects in PHP, offering a reliable and efficient solution for representing and manipulating immutable data.",
+    "type": "library",
+    "require": {
+        "ramsey/uuid": "^4.7"
+    },
+    "license": "MIT License",
+    "autoload": {
+        "psr-4": {
+            "Adrigar94\\ValueObjectCraft\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "adrigar94",
+            "email": "112860345+adrigar94@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
