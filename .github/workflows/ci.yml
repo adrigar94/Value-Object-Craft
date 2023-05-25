@@ -1,4 +1,4 @@
-name: PHP Composer
+name: build
 
 on:
   push:
@@ -32,8 +32,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
     - name: Run test suite
       run: composer run-script test
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
