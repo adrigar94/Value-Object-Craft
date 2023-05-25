@@ -9,17 +9,24 @@ use Adrigar94\ValueObjectCraft\Primitive\String\StringTooShortException;
 use Adrigar94\ValueObjectCraft\Primitive\String\StringValueObject;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers StringValueObject
+ */
 class StringValueObjectTest extends TestCase
 {
+
     public function testValidValue(): void
     {
         $value = 'Hello, World!';
-        $stringValueObject = new class($value) extends StringValueObject {
-            protected static function getMinLength(): int {
+        $stringValueObject = new class($value) extends StringValueObject
+        {
+            protected static function getMinLength(): int
+            {
                 return 5;
             }
 
-            protected static function getMaxLength(): int {
+            protected static function getMaxLength(): int
+            {
                 return 15;
             }
         };
@@ -30,14 +37,17 @@ class StringValueObjectTest extends TestCase
     public function testStringTooShortException(): void
     {
         $this->expectException(StringTooShortException::class);
-        
+
         $value = 'Hi';
-        $stringValueObject = new class($value) extends StringValueObject {
-            protected static function getMinLength(): int {
+        $stringValueObject = new class($value) extends StringValueObject
+        {
+            protected static function getMinLength(): int
+            {
                 return 5;
             }
 
-            protected static function getMaxLength(): int {
+            protected static function getMaxLength(): int
+            {
                 return 15;
             }
         };
@@ -46,14 +56,17 @@ class StringValueObjectTest extends TestCase
     public function testStringTooLongException(): void
     {
         $this->expectException(StringTooLongException::class);
-        
+
         $value = 'This string is too long';
-        $stringValueObject = new class($value) extends StringValueObject {
-            protected static function getMinLength(): int {
+        $stringValueObject = new class($value) extends StringValueObject
+        {
+            protected static function getMinLength(): int
+            {
                 return 5;
             }
 
-            protected static function getMaxLength(): int {
+            protected static function getMaxLength(): int
+            {
                 return 15;
             }
         };
