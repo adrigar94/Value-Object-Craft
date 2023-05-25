@@ -37,7 +37,8 @@ abstract class StringValueObject implements ValueObject
         $minLength = $this->getMinLength();
 
         if (strlen($value) < $minLength) {
-            throw new StringTooShortException($minLength);
+            $className = static::class;
+            throw new StringTooShortException($minLength, $className);
         }
     }
 
@@ -46,7 +47,8 @@ abstract class StringValueObject implements ValueObject
         $maxLength = $this->getMaxLength();
 
         if (strlen($value) > $maxLength) {
-            throw new StringTooLongException($maxLength);
+            $className = static::class;
+            throw new StringTooLongException($maxLength, $className);
         }
     }
 
