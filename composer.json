@@ -5,10 +5,15 @@
     "require": {
         "ramsey/uuid": "^4.7"
     },
-    "license": "MIT License",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Adrigar94\\ValueObjectCraft\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Adrigar94\\ValueObjectCraft\\Test\\": "tests/"
         }
     },
     "authors": [

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Adrigar94\ValueObjectCraft\Primitive\String;
+
 
 use Adrigar94\ValueObjectCraft\ValueObject;
 
