@@ -4,9 +4,10 @@ ValueObjectCraft is a PHP library that provides a set of versatile and robust va
 
 ## TODO
 
-- Domain
-    - Name
-    - Fullname
-    - Phone
-    - Password
+- [ ] Create how to use library
+- [ ] Domain Value Objects
+    - [X] Name
+    - [X] FullName
+    - [ ] Phone
+    - [ ] Password
     - 
