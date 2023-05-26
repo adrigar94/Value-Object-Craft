@@ -4,10 +4,17 @@ ValueObjectCraft is a PHP library that provides a set of versatile and robust va
 **Note: 🚧 This library is under active development and is considered to be in an early stage.**
 **Contributions are welcome! 🙌**
 
+## Installation
+To install ValueObjectCraft using Composer, run the following command:
+```
+composer require adrigar94/value-object-craft
+```
+
+
 ## TODO
 
-- [ ] Create how to use library
-- [ ] Domain Value Objects
+- [ ] Create a comprehensive guide on how to use the library
+- [ ] Implement additional domain value objects
     - [X] Name
     - [X] FullName (combination of first name and last name)
     - [X] Password
