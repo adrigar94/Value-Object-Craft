@@ -19,8 +19,9 @@
     },
     "authors": [
         {
-            "name": "adrigar94",
-            "email": "112860345+adrigar94@users.noreply.github.com"
+            "name": "Adrián García Sabaté",
+            "email": "112860345+adrigar94@users.noreply.github.com",
+            "homepage": "https://github.com/adrigar94/"
         }
     ],
     "minimum-stability": "dev",
