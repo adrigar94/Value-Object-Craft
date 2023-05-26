@@ -8,6 +8,13 @@ use Adrigar94\ValueObjectCraft\Primitive\String\StringValueObject;
 
 class PasswordValueObject extends StringValueObject
 {
+
+    public function __construct(string $value)
+    {
+        parent::__construct($value);
+        $this->value = $this->encode($value);
+    }
+
     protected static function getMinLength(): int
     {
         return 8;
@@ -31,13 +38,13 @@ class PasswordValueObject extends StringValueObject
         }
     }
 
-    public function encode(): string
+    public function encode(string $plainPassword): string
     {
-        return password_hash($this->value(), PASSWORD_DEFAULT);
+        return password_hash($plainPassword, PASSWORD_DEFAULT);
     }
 
-    public function verify(string $encodedPassword): bool
+    public function verify(string $plainPassword): bool
     {
-        return password_verify($this->value(), $encodedPassword);
+        return password_verify($plainPassword, $this->value());
     }
 }

@@ -18,7 +18,7 @@ class PasswordValueObjectTest extends TestCase
         $passwordValue = 'MySecurePassword123!';
         $password = new PasswordValueObject($passwordValue);
 
-        $this->assertSame($passwordValue, $password->value());
+        $this->assertInstanceOf(PasswordValueObject::class, $password);
     }
 
     public function testInvalidShortPasswordValueObject(): void
@@ -61,13 +61,11 @@ class PasswordValueObjectTest extends TestCase
         new PasswordValueObject($passwordValue);
     }
 
-    public function testEncodeAndVerifyPasswordValueObject(): void
+    public function testVerifyPasswordValueObject(): void
     {
         $passwordValue = 'MySecurePassword123!';
         $password = new PasswordValueObject($passwordValue);
 
-        $encodedPassword = $password->encode();
-        $this->assertNotSame($passwordValue, $encodedPassword);
-        $this->assertTrue($password->verify($encodedPassword));
+        $this->assertTrue($password->verify($passwordValue));
     }
 }
