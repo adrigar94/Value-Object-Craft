@@ -7,11 +7,10 @@ namespace Adrigar94\ValueObjectCraft\Test\Primitive\Int;
 use Adrigar94\ValueObjectCraft\Primitive\Int\IntTooSmallException;
 use Adrigar94\ValueObjectCraft\Primitive\Int\IntTooLargeException;
 use Adrigar94\ValueObjectCraft\Primitive\Int\IntValueObject;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers IntValueObject
- */
+#[CoversClass(IntValueObject::class)]
 class IntValueObjectTest extends TestCase
 {
     public function testValidValue(): void

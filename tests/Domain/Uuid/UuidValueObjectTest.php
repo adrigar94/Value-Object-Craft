@@ -6,11 +6,10 @@ namespace Adrigar94\ValueObjectCraft\Test\Domain\Uuid;
 
 use Adrigar94\ValueObjectCraft\Domain\Uuid\UuidValueObject;
 use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers UuidValueObject
- */
+#[CoversClass(UuidValueObject::class)]
 class UuidValueObjectTest extends TestCase
 {
     public function testValidUuid(): void

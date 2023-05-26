@@ -7,11 +7,10 @@ namespace Adrigar94\ValueObjectCraft\Test\Primitive\Float;
 use Adrigar94\ValueObjectCraft\Primitive\Float\FloatTooSmallException;
 use Adrigar94\ValueObjectCraft\Primitive\Float\FloatTooLargeException;
 use Adrigar94\ValueObjectCraft\Primitive\Float\FloatValueObject;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers FloatValueObject
- */
+#[CoversClass(FloatValueObject::class)]
 class FloatValueObjectTest extends TestCase
 {
     public function testValidValue(): void

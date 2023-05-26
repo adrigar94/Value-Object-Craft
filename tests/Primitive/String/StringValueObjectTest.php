@@ -7,11 +7,10 @@ namespace Adrigar94\ValueObjectCraft\Test\Primitive\String;
 use Adrigar94\ValueObjectCraft\Primitive\String\StringTooLongException;
 use Adrigar94\ValueObjectCraft\Primitive\String\StringTooShortException;
 use Adrigar94\ValueObjectCraft\Primitive\String\StringValueObject;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers StringValueObject
- */
+#[CoversClass(StringValueObject::class)]
 class StringValueObjectTest extends TestCase
 {
 

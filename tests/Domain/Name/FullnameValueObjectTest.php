@@ -6,11 +6,10 @@ namespace Adrigar94\ValueObjectCraft\Test\Domain\Name;
 
 use Adrigar94\ValueObjectCraft\Domain\Name\FullnameValueObject;
 use Adrigar94\ValueObjectCraft\Domain\Name\NameValueObject;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers FullnameValueObject
- */
+#[CoversClass(FullnameValueObject::class)]
 class FullnameValueObjectTest extends TestCase
 {
     public function testValidValue(): void

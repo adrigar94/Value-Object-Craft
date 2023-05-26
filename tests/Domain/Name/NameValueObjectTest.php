@@ -7,11 +7,10 @@ namespace Adrigar94\ValueObjectCraft\Test\Domain\Name;
 use Adrigar94\ValueObjectCraft\Domain\Name\NameValueObject;
 use Adrigar94\ValueObjectCraft\Primitive\String\StringTooLongException;
 use Adrigar94\ValueObjectCraft\Primitive\String\StringTooShortException;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers NameValueObject
- */
+#[CoversClass(NameValueObject::class)]
 class NameValueObjectTest extends TestCase
 {
     public function testValidValue(): void
