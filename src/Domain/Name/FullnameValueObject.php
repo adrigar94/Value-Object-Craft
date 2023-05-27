@@ -56,7 +56,7 @@ class FullnameValueObject implements ValueObject
         return $this->name() . ' ' . $this->surname();
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): string
     {
         return json_encode(['name' => $this->name(), 'surname' => $this->surname()]);
     }
