@@ -18,6 +18,11 @@ class FullnameValueObject implements ValueObject
         $this->surname = $surname;
     }
 
+    public static function create(string $name, string $surname): self
+    {
+        return new Self(new NameValueObject($name), new NameValueObject($surname));
+    }
+
     public function name(): NameValueObject
     {
         return $this->name;

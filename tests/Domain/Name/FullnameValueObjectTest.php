@@ -22,6 +22,16 @@ class FullnameValueObjectTest extends TestCase
         $this->assertSame($surname, $fullname->surname());
     }
 
+    public function testCreate(): void
+    {
+        $name = 'John';
+        $surname = 'Doe';
+        $fullname = FullnameValueObject::create($name, $surname);
+
+        $this->assertSame($name, $fullname->name()->value());
+        $this->assertSame($surname, $fullname->surname()->value());
+    }
+
     public function testIsSame(): void
     {
         $name1 = new NameValueObject('John');
