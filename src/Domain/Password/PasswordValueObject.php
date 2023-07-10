@@ -9,10 +9,19 @@ use Adrigar94\ValueObjectCraft\Primitive\String\StringValueObject;
 class PasswordValueObject extends StringValueObject
 {
 
-    public function __construct(string $value)
+    public function __construct(string $value, bool $isHashed = false)
     {
         parent::__construct($value);
-        $this->value = $this->encode($value);
+
+        $this->value = $value;
+        if(!$isHashed){
+            $this->value = $this->encode($value);
+        }
+    }
+    
+    public static function fromHashed(string $hashed): self
+    {
+        return new static($hashed, true);
     }
 
     protected static function getMinLength(): int
