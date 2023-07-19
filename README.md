@@ -18,9 +18,9 @@ composer require adrigar94/value-object-craft
     - [X] Name
     - [X] FullName (combination of first name and last name)
     - [X] Password
+    - [X] Currency
+    - [X] Price (combination of numeric value and currencyy)
     - [ ] Phone
-    - [ ] Currency
-    - [ ] Price (combination of numeric value and currencyy)
     - [ ] ...
 
 
