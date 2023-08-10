@@ -9,13 +9,9 @@ use InvalidArgumentException;
 
 class CoordsValueObject implements ValueObject
 {
-    private float $latitude;
-    private float $longitude;
 
-    public function __construct(float $latitude, float $longitude)
+    public function __construct(private float $latitude, private float $longitude)
     {
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
     }
 
     public function getLatitude(): float
