@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Adrigar94\ValueObjectCraft\Test\Domain\Location;
 
 use Adrigar94\ValueObjectCraft\Domain\Location\CoordsValueObject;
-use Adrigar94\ValueObjectCraft\ValueObject;
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -20,7 +19,7 @@ class CoordsValueObjectTest extends TestCase
 
         $coords = new CoordsValueObject($latitude, $longitude);
 
-        $this->assertInstanceOf(ValueObject::class, $coords);
+        $this->assertInstanceOf(CoordsValueObject::class, $coords);
         $this->assertSame($latitude, $coords->getLatitude());
         $this->assertSame($longitude, $coords->getLongitude());
     }
