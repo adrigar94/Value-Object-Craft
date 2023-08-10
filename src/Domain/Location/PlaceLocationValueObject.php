@@ -9,24 +9,14 @@ use InvalidArgumentException;
 
 class PlaceLocationValueObject implements ValueObject
 {
-    private string $locality;
-    private string $country;
-    private ?string $region;
-    private ?string $city;
-    private ?string $postalCode;
 
     public function __construct(
-        string $locality,
-        string $country,
-        ?string $region = null,
-        ?string $city = null,
-        ?string $postalCode = null
+        private string $locality,
+        private string $country,
+        private ?string $region = null,
+        private ?string $city = null,
+        private ?string $postalCode = null
     ) {
-        $this->locality = $locality;
-        $this->country = $country;
-        $this->region = $region;
-        $this->city = $city;
-        $this->postalCode = $postalCode;
     }
 
     public function getLocality(): string
