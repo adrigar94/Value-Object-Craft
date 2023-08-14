@@ -51,12 +51,12 @@ class FullnameValueObject implements ValueObject
         return new static($name, $surname);
     }
 
-    public function toNative()
+    public function toNative(): string
     {
         return $this->jsonSerialize();
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->name() . ' ' . $this->surname();
     }

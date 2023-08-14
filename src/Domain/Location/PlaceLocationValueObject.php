@@ -76,7 +76,7 @@ class PlaceLocationValueObject implements ValueObject
         );
     }
 
-    public function toNative()
+    public function toNative(): array
     {
         $native = [
             'locality' => $this->locality,
@@ -121,7 +121,7 @@ class PlaceLocationValueObject implements ValueObject
         return implode(', ', $parts);
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toNative();
     }

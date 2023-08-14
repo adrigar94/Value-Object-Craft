@@ -46,7 +46,7 @@ class CoordsValueObject implements ValueObject
         return new self((float) $native['latitude'], (float) $native['longitude']);
     }
 
-    public function toNative()
+    public function toNative(): array
     {
         return [
             'latitude' => $this->latitude,
@@ -59,7 +59,7 @@ class CoordsValueObject implements ValueObject
         return $this->latitude . ', ' . $this->longitude;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toNative();
     }

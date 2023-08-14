@@ -49,7 +49,7 @@ class GeoLocationValueObject implements ValueObject
         return new static($coords, $location);
     }
 
-    public function toNative()
+    public function toNative(): array
     {
         return [
             'coords' => $this->coords->toNative(),
@@ -57,12 +57,12 @@ class GeoLocationValueObject implements ValueObject
         ];
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->location->__toString() . ' (' . $this->coords->__toString() . ')';
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toNative();
     }

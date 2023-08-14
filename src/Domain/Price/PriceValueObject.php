@@ -41,7 +41,7 @@ class PriceValueObject implements ValueObject
         return new static($native['price'], $native['currency']);
     }
 
-    public function toNative()
+    public function toNative(): array
     {
         return [
             'price' => $this->price,
@@ -49,12 +49,12 @@ class PriceValueObject implements ValueObject
         ];
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getPrice() . $this->currency;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toNative();
     }

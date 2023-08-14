@@ -53,7 +53,7 @@ class ImageValueObject implements ValueObject
         );
     }
 
-    public function toNative()
+    public function toNative(): array
     {
         return [
             'id' => $this->id->value(),
@@ -62,12 +62,12 @@ class ImageValueObject implements ValueObject
         ];
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->url;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toNative();
     }

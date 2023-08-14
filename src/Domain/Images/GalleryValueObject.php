@@ -67,7 +67,7 @@ class GalleryValueObject implements ValueObject
         return new static(...$imageObjects);
     }
 
-    public function toNative()
+    public function toNative(): array
     {
         $nativeImages = [];
         foreach ($this->getImages() as $image) {
@@ -77,12 +77,12 @@ class GalleryValueObject implements ValueObject
         return $nativeImages;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return json_encode($this->toNative());
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toNative();
     }
