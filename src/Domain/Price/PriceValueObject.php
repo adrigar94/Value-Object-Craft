@@ -38,14 +38,14 @@ class PriceValueObject implements ValueObject
 
     public static function fromNative($native)
     {
-        return new static($native['price'], $native['currency']);
+        return new static($native['price'], CurrencyValueObject::fromNative($native['currency']));
     }
 
     public function toNative(): array
     {
         return [
             'price' => $this->price,
-            'currency' => $this->currency
+            'currency' => $this->currency->toNative()
         ];
     }
 
