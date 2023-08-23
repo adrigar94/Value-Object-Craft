@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Adrigar94\ValueObjectCraft\Primitive\Enum;
 
 use Adrigar94\ValueObjectCraft\ValueObject;
+use ReflectionClass;
 use RuntimeException;
 
 abstract class EnumValueObject implements ValueObject
@@ -19,7 +20,7 @@ abstract class EnumValueObject implements ValueObject
         $this->value = $value;
     }
 
-    protected function ensureIsValid(string $value):void
+    protected function ensureIsValid(string $value): void
     {
         if (!array_key_exists($value, $this->valueMapping())) {
             throw new EnumOptionNotAvailableException($value);
@@ -29,6 +30,18 @@ abstract class EnumValueObject implements ValueObject
     public function value(): string
     {
         return $this->value;
+    }
+
+    public static function values(): array
+    {
+        $class = static::class;
+        $reflected = new ReflectionClass($class);
+        return $reflected->getConstants();
+    }
+
+    public static function __callStatic(string $name, $args)
+    {
+        return new static(self::values()[$name]);
     }
 
     public function isSame(ValueObject $object): bool

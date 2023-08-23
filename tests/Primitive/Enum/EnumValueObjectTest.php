@@ -9,23 +9,34 @@ use Adrigar94\ValueObjectCraft\Primitive\Enum\EnumValueObject;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
+class userRoles extends EnumValueObject
+{
+    public const ADMIN = 'admin';
+    public const USER = 'user';
+    protected function valueMapping(): array
+    {
+        return [
+            self::ADMIN => 'Admin User',
+            self::USER => 'Regular User',
+        ];
+    }
+}
 #[CoversClass(EnumValueObject::class)]
 class EnumValueObjectTest extends TestCase
 {
+
     public function testValidValue(): void
     {
         $value = 'admin';
-        $enumValueObject = new class($value) extends EnumValueObject
-        {
-            protected function valueMapping(): array
-            {
-                return [
-                    'admin' => 'Admin User',
-                    'user' => 'Regular User',
-                ];
-            }
-        };
+        $enumValueObject = new userRoles($value);
 
+        $this->assertSame($value, $enumValueObject->value());
+    }
+
+    public function testValidValueFromStatic(): void
+    {
+        $value = 'admin';
+        $enumValueObject = userRoles::ADMIN();
         $this->assertSame($value, $enumValueObject->value());
     }
 
@@ -34,32 +45,14 @@ class EnumValueObjectTest extends TestCase
         $this->expectException(EnumOptionNotAvailableException::class);
 
         $value = 'guest';
-        $enumValueObject = new class($value) extends EnumValueObject
-        {
-            protected function valueMapping(): array
-            {
-                return [
-                    'admin' => 'Admin User',
-                    'user' => 'Regular User',
-                ];
-            }
-        };
+        $enumValueObject = new userRoles($value);
     }
 
     public function testGetDisplayedValue(): void
     {
         $value = 'admin';
         $expectedDisplayedValue = 'Admin User';
-        $enumValueObject = new class($value) extends EnumValueObject
-        {
-            protected function valueMapping(): array
-            {
-                return [
-                    'admin' => 'Admin User',
-                    'user' => 'Regular User',
-                ];
-            }
-        };
+        $enumValueObject = new userRoles($value);
 
         $this->assertSame($expectedDisplayedValue, $enumValueObject->getDisplayedValue());
     }
@@ -68,16 +61,7 @@ class EnumValueObjectTest extends TestCase
     {
         $value = 'admin';
         $expectedString = 'Admin User';
-        $enumValueObject = new class($value) extends EnumValueObject
-        {
-            protected function valueMapping(): array
-            {
-                return [
-                    'admin' => 'Admin User',
-                    'user' => 'Regular User',
-                ];
-            }
-        };
+        $enumValueObject = new userRoles($value);
 
         $this->assertSame($expectedString, (string) $enumValueObject);
     }
