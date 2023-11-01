@@ -34,7 +34,7 @@ class CurrencyValueObjectTest extends TestCase
     public function testGetDisplayedValue(): void
     {
         $value = CurrencyValueObject::Euro;
-        $expectedDisplayedValue = "EUR";
+        $expectedDisplayedValue = "Euro";
         $currencyValueObject = new CurrencyValueObject($value);
 
         $this->assertSame($expectedDisplayedValue, $currencyValueObject->getDisplayedValue());
@@ -52,9 +52,26 @@ class CurrencyValueObjectTest extends TestCase
     public function testToString(): void
     {
         $value = CurrencyValueObject::Euro;
-        $expectedString = 'EUR';
+        $expectedString = 'Euro';
         $currencyValueObject = new CurrencyValueObject($value);
 
         $this->assertSame($expectedString, (string) $currencyValueObject);
+    }
+
+    
+    public function testToNative(): void
+    {
+        $value = CurrencyValueObject::Euro;
+        $expectedString = 'EUR';
+        $currencyValueObject = new CurrencyValueObject($value);
+
+        $this->assertSame($expectedString, $currencyValueObject->toNative());
+    }
+
+    public function testFromNative(): void
+    {
+        $native = 'EUR';
+        $currencyValueObject = CurrencyValueObject::fromNative($native);
+        $this->assertSame($native, $currencyValueObject->value());
     }
 }
